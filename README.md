@@ -3,6 +3,9 @@
 :warning: DONT ABUSE HANIME SYSTEMs </br>
 :heavy_check_mark: USE IT FRO TESTING PURPOSES ONLY
 
+this is for fun purposes and not for production cases
+if you guy re from hanime staff see this pls ask nicely to remove it
+
 # API Documentation
 This is my docs please read T_T
 ## Table of Contents
@@ -242,7 +245,10 @@ Not yet because im scared of getting email from hanime and people might be abusi
 I need to organise everything first....
 
 # Troubleshootings
-If there is any problem with this API, Please email me at admin@aslnk.ml
+If there is any problem with this API, Please make a issue report....
 
 # Author / Credits
-Made with :heart_on_fire: By NYT92 from :cambodia:
+Made with :heart_on_fire: By NYT92 from :cambodia:  
+And
+WeaveAche : https://github.com/WeaveAche/hanime-auto-coins-collector
+Profility : https://github.com/Profility/hanime-scraper

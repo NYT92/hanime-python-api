@@ -6,6 +6,19 @@
 this is for fun purposes and not for production cases
 if you guy re from hanime staff see this pls ask nicely to remove it
 
+# How to run
+
+Install Python 3.9+ to run this
+
+Clone the repo
+> https://github.com/NYT92/hanime-python-api.git
+
+Install the requirements
+> pip install -r requirements
+
+Run the server
+> python or python3 main.py
+
 # API Documentation
 This is my docs please read T_T
 ## Table of Contents

@@ -6,7 +6,21 @@
 this is for fun purposes and not for production cases
 if you guy re from hanime staff see this pls ask nicely to remove it
 
-# How to run
+# Comming Soon
+
+- /getComment
+- /getPremiumVideo
+- /getLanding/summary : summary the whole landing page
+- /getTags
+- /login/req/body : will be using json body requests to login
+- /login/coins : will be improve
+- /search
+- /signup : wont be added due to the risk of people abusing the api
+- Too much request will be added
+- Improving code
+- later........
+
+# How to run the api
 
 Install Python 3.9+ to run this
 
@@ -252,16 +266,15 @@ To get Download Hanime Video page
 
 <br />
 
-# Source Code ???
+# why the fuck are u doing this? it just an useless api lmaoo...
 
-Not yet because im scared of getting email from hanime and people might be abusing it too....
-I need to organise everything first....
+for fun n education not for something else
 
 # Troubleshootings
 If there is any problem with this API, Please make a issue report....
 
 # Author / Credits
 Made with :heart_on_fire: By NYT92 from :cambodia:  
-And
-WeaveAche : https://github.com/WeaveAche/hanime-auto-coins-collector
-Profility : https://github.com/Profility/hanime-scraper
+And  
+- [WeaveAche/hanime-auto-coins-collector](https://github.com/WeaveAche/hanime-auto-coins-collector)  
+- [Profility/hanime-scraper](https://github.com/Profility/hanime-scraper)

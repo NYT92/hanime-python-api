@@ -1,10 +1,11 @@
 # hanime-python-api
 
 :warning: DONT ABUSE HANIME SYSTEMs </br>
-:heavy_check_mark: USE IT FRO TESTING PURPOSES ONLY
+:heavy_check_mark: USE IT FOR TESTING PURPOSES ONLY
 
-this is for fun purposes and not for production cases
-if you guy re from hanime staff see this pls ask nicely to remove it
+this is for fun purposes and not for production cases.  
+if you guy re from hanime staff see this pls ask nicely to remove it.  
+Also im just creating this api so that i can run it off from web to collect [coins](#authentication)
 
 # Comming Soon
 

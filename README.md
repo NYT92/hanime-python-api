@@ -7,17 +7,17 @@ this is for fun purposes and not for production cases.
 if you guy re from hanime staff see this pls ask nicely to remove it.  
 Also im just creating this api so that i can run it off from web to collect [coins](#authentication)
 
-# Comming Soon
+# ToDos
 
-- /getComment
-- /getPremiumVideo
-- /getLanding/summary : summary the whole landing page
-- /getTags
-- /login/req/body : will be using json body requests to login
-- /login/coins : will be improve
-- /search
-- /signup : wont be added due to the risk of people abusing the api
-- Too much request will be added
+- /getComment : WORKING
+- /getPremiumVideo : TESTING/WORKING
+- /getLanding/summary : WORKING
+- /getTags : WORKING
+- /login/req/body : DONE
+- /login/coins : DONE
+- /search : WORKING
+- /signup : X
+- Limiting Rate : DONE
 - Improving code
 - later........
 
@@ -169,13 +169,14 @@ To get little bit of the important info
 
 **/login/coins**
 
-UNDER CONSTRUCTION
-
 To get a coins from Hanime without installing App
 > /login/coins?email=YOUR_HANIME_EMAIL&password=YOUR_HANIME_PASSWORD
 
 ````
-Soon
+{
+	"rewarded_amount": XXX,
+	"message" : "You have successfully collected your coins"
+}
 ````
 
 ## API

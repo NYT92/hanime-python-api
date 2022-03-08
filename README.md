@@ -38,6 +38,7 @@ Run the server
 This is my docs please read T_T
 ## Table of Contents
 
+- [Usage](#usage)
 - [Auth](#authentication)
 - [API](#api)
 
@@ -56,6 +57,26 @@ This is my docs please read T_T
 	/getVideo
 	/getLanding (unorganize)
 	/getComment (soon)
+
+## Usage
+
+If you plan to used this for your application, yes, you can.....  
+But There is a rate limit for each routes.  
+
+| **Routes**      | **Rate Limits**    |
+|-----------------|--------------------|
+| /login          | 15 req per seconds |
+| /login/summary  | 15 req per seconds |
+| /login/coins    | 15 req per seconds |
+| /getVideo       | 15 req per seconds |
+| /getInfo        | 15 req per seconds |
+| /getDownloadURL | 15 req per seconds |
+| /getLanding     | 15 req per seconds |
+| /getComment     | 15 req per seconds |
+| /search         | 50 req per seconds |
+
+Base URL for API:
+> https://hani.nsdev.ml
 
 ## Authentication
 

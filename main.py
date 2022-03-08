@@ -156,35 +156,37 @@ def login_coins():
     host = "https://hanime.tv/"
     hanime_email = request.args.get("email")
     hanime_password = request.args.get("password")
-    
+
     def getSHA256(to_hash):
         m = sha256()
         m.update(to_hash.encode())
-        return m.hexdigest()    
-
+        return m.hexdigest()
+    
     def getXHeaders():
         XClaim = str(int(time.time()))
         XSig = getSHA256(f"9944822{XClaim}8{XClaim}113")
         headers = {"X-Signature-Version": "app2","X-Claim": XClaim,"X-Signature": XSig}
-        return headers 
+        return headers
 
     def login(s:requests.Session, email,password):
         s.headers.update(getXHeaders())
-        response = s.post(f"{host}/rapi/v4/sessions", headers={"Content-Type":"application/json;charset=utf-8"},data=f'{{"burger":"{email}","fries":"{password}"}}')
-        return getInfo(response.text)
+        response = s.post(f"{host}/rapi/v4/sessions",headers={"Content-Type":"application/json;charset=utf-8"},data=f'{{"burger":"{email}","fries":"{password}"}}')
+        
+        if '{"errors":["Unauthorized"]}' in response.text:
+            print("[!!!] Login failed, please check your credentials.")
+            exit()
+        else:
+            return getInfo(response.text)
 
     def getInfo(response):
         received = json.loads(response)
         ret = {}
-
         ret["session_token"] = received["session_token"]
         ret["uid"] = received["user"]["id"]
         ret["name"] = received["user"]["name"]
         ret["coins"] = received["user"]["coins"]
         ret["last_clicked"] = received["user"]["last_rewarded_ad_clicked_at"]
-
         available_keys = list(received["env"]["mobile_apps"].keys())
-
         if "_build_number" in available_keys:
             ret["version"] = received["env"]["mobile_apps"]["_build_number"]
         elif "osts_build_number" in available_keys:
@@ -192,7 +194,7 @@ def login_coins():
         elif "severilous_build_number" in available_keys:
             ret["version"] = received["env"]["mobile_apps"]["severilous_build_number"]
         else:
-            return ("Unable to find the build number for the latest mobile app.")
+            print("[!!!] Unable to find the build number for the latest mobile app, please report an issue on github.")
         return ret
 
     def getCoins(s:requests.Session,version,uid):
@@ -201,18 +203,20 @@ def login_coins():
         to_hash = f"coins{version}|{uid}|{curr_time}|coins{version}"
         data = {"reward_token": getSHA256(to_hash)+f"|{curr_time}" ,"version":f"{version}"}
         response = s.post(f"{host}/rapi/v4/coins",data=data)
-
-        print(json.loads(response.text))
-        return jsonify({"rewarded_amount": json.loads(response.text)['rewarded_amount']}), 200
-
+        ret = json.loads(response.text)
+        return jsonify({
+            "rewarded_amount": ret["rewarded_amount"],
+            "message" : "You have successfully collected your coins" 
+        })
+        
     def main():
         s = requests.Session()
         info = login(s,hanime_email, hanime_password)
         s.headers.update({"X-Session-Token":info["session_token"]})
-        
         if time.time() - parser.parse(info["last_clicked"]).timestamp() < 3*3600:
-            return jsonify({"error":"You have already clicked on an ad less than 3 hrs ago.", "total_coins":info["coins"], "info":"There will be 500 response but when you refresh the page the total coins show up, It is so hard to fix it because i have to waited for 3 hours to test again"})
-        getCoins(s,info["version"],info["uid"])
+            return jsonify({"error":"You have already clicked on an ad less than 3 hrs ago.", "total_coins":info["coins"]})
+        return getCoins(s,info["version"],info["uid"])
+    
     try:
         info = main()
         return info, 200

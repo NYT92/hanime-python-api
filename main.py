@@ -25,12 +25,6 @@ CORS(app, resources={r"*": {"origins": "*"}})
 
 base_url = "https://hanime.tv/"
 
-def rate_limit(func):
-    def wrapper(*args, **kwargs):
-        time.sleep(0.5)
-        return func(*args, **kwargs)
-    return wrapper
-
 @app.errorhandler(404)
 def resource_not_found(e):
     return jsonify(error=str(e)), 404
@@ -38,6 +32,8 @@ def resource_not_found(e):
 @app.errorhandler(500)
 def server_error(e):
     return jsonify(error=str(e)), 500
+
+#Authentication
 
 @app.route('/')
 def index(): 
@@ -223,6 +219,48 @@ def login_coins():
     except:
         return jsonify({"error": "Unauthorized", "status":"401"}), 401
 
+@app.route("/login/res/body", methods=["POST"])
+@limiter.limit("15/second")
+def resbody():
+    host = "https://hanime.tv/"
+    request_data = request.get_json(force=True)
+    hanime_email = request_data['email']
+    hanime_password = request_data['password']
+
+    def getSHA256(to_hash):
+        m = sha256()
+        m.update(to_hash.encode())
+        return m.hexdigest()    
+
+    def getXHeaders():
+        XClaim = str(int(time.time()))
+        XSig = getSHA256(f"9944822{XClaim}8{XClaim}113")
+        headers = {"X-Signature-Version": "web2","X-Time": XClaim,"X-Signature": XSig}
+        return headers 
+
+    def login(s:requests.Session, email,password):
+        s.headers.update(getXHeaders())
+        response = s.post(f"{host}/rapi/v4/sessions", headers={"Content-Type":"application/json;charset=utf-8"},data=f'{{"burger":"{email}","fries":"{password}"}}')
+        return getInfo(response.text)
+
+    def getInfo(response):
+        received = json.loads(response)
+        return received
+
+    def main():
+        s = requests.Session()
+        info = login(s,hanime_email, hanime_password)
+        s.headers.update({"X-Session-Token":info["session_token"]})
+        return info
+
+    try:
+        info = main()
+        return jsonify(info), 200
+    except:
+        return jsonify({"error": "Unauthorized", "status":"401"}), 401
+
+#API
+    
 @app.route('/getInfo', methods=["GET"])
 def info():
     id = request.args.get('id')

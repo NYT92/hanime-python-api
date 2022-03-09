@@ -21,6 +21,13 @@ Also im just creating this api so that i can run it off from web to collect [coi
 - Improving code
 - later........
 
+# Project
+What can you do with my api???  
+
+CoinCllt/NYT92 : https://coincllt.nsdev.ml  
+
+Contribute this readme to add one of your project...
+
 # How to run the api
 
 Install Python 3.9+ to run this

@@ -10,12 +10,11 @@ Also im just creating this api so that i can run it off from web to collect [coi
 # ToDos
 
 - /getComment : WORKING
-- /getPremiumVideo : TESTING/WORKING
 - /getLanding/summary : WORKING
 - /getTags : WORKING
 - /login/req/body : DONE
 - /login/coins : DONE
-- /search : WORKING
+- /search : DONE
 - /signup : X
 - Limiting Rate : DONE
 - Improving code
@@ -80,7 +79,7 @@ But There is a rate limit for each routes.
 | /getDownloadURL | 15 req per seconds |
 | /getLanding     | 15 req per seconds |
 | /getComment     | 15 req per seconds |
-| /search         | 50 req per seconds |
+| /search         | 200 req per minute |
 
 Base URL for API:
 > https://hani.nsdev.ml
@@ -293,6 +292,21 @@ To get Download Hanime Video page
 ````
 "downloadURL": "https://hanime.tv/downloads/<>"
 ````
+
+**/search** [POST]
+
+This Page is in Construction...
+
+| Body Params | Description                          |
+|-------------|--------------------------------------|
+| search      | Search Title, Description, Tags, etc |
+| tags        | Find Video with tags                 |
+| brands      | Find All of brands                   |
+| blacklist   | Exclude tags on search               |
+| order_by    |                                      |
+| ordering    |                                      |
+| page        |                                      |
+
 
 <br />
 

@@ -5,20 +5,10 @@
 
 this is for fun purposes and not for production cases.  
 if you guy re from hanime staff see this pls ask nicely to remove it.  
-Also im just creating this api so that i can run it off from web to collect [coins](#authentication)
 
-# ToDos
+# API Documentation
 
-- /getComment : WORKING
-- /getLanding/summary : WORKING
-- /getTags : WORKING
-- /login/req/body : DONE
-- /login/coins : DONE
-- /search : DONE
-- /signup : X
-- Limiting Rate : DONE
-- Improving code
-- later........
+Move to https://haniapi-docs.vercel.app
 
 # Project
 What can you do with my api???  
@@ -39,11 +29,6 @@ Install the requirements
 
 Run the server
 > python or python3 main.py
-
-# API Documentation
-
-We have move to other documentation website....  
-New Location [Docs](https://docs_hani.nsdev.ml)
 
 # why the fuck are u doing this? it just an useless api lmaoo...
 

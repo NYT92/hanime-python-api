@@ -303,6 +303,42 @@ def getallld():
     result = requests.get(request_url)
     result = result.json()
     return result
-        
+
+# Search API
+
+@app.route('/search', methods=['POST'])
+def search():
+    #srv2-hani-api wont fetch to your website...
+    search_url = "https://srv2-hani-api.deta.dev/hanimetv/search/web2/"
+    request_data = request.get_json(force=True)
+    search_query = request_data['search']
+    search_brand = request_data['brands']
+    search_page = request_data['page']
+    search_blacklist = request_data['blacklist']
+    search_ordering = request_data['ordering']
+    search_order_by = request_data['order_by']
+    search_tag = request_data['tags']
+    res_json = {
+        "search": search_query,
+        "tags":
+            search_tag
+        ,
+        "brands": 
+            search_brand
+        ,
+        "blacklist": 
+            search_blacklist
+        ,
+        "order": search_order_by,
+        "ordering": search_ordering,
+        "page": search_page,
+    }
+    headers = {
+        "Content-Type":"application/json; charset=utf-8"
+    }
+    response = requests.get(search_url, headers=headers, json=res_json)
+    results = response.json()
+    return jsonify(results), 200
+
 if __name__ == "__main__":
     app.run()

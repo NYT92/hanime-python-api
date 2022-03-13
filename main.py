@@ -220,7 +220,6 @@ def login_coins():
         return jsonify({"error": "Unauthorized", "status":"401"}), 401
 
 @app.route("/login/res/body", methods=["POST"])
-@limiter.limit("15/second")
 def resbody():
     host = "https://hanime.tv/"
     request_data = request.get_json(force=True)
@@ -318,6 +317,7 @@ def search():
     search_ordering = request_data['ordering']
     search_order_by = request_data['order_by']
     search_tag = request_data['tags']
+
     res_json = {
         "search": search_query,
         "tags":
@@ -337,12 +337,8 @@ def search():
         "Content-Type":"application/json; charset=utf-8"
     }
     response = requests.post(search_url, headers=headers, json=res_json)
-    try:
-        results = response.json()
-        return jsonify(results), 200
-    except:
-        return jsonify({"error": "It might be your typo error in the body requests, Please try again", "status":"500"}), 500
-
+    results = response.json()
+    return jsonify(results, {"Info":"500 might happened if the request got typo"}), 200
 
 if __name__ == "__main__":
     app.run()

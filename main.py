@@ -336,7 +336,7 @@ def search():
     headers = {
         "Content-Type":"application/json; charset=utf-8"
     }
-    response = requests.get(search_url, headers=headers, json=res_json)
+    response = requests.post(search_url, headers=headers, json=res_json)
     results = response.json()
     return jsonify(results), 200
 

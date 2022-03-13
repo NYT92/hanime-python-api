@@ -337,8 +337,12 @@ def search():
         "Content-Type":"application/json; charset=utf-8"
     }
     response = requests.post(search_url, headers=headers, json=res_json)
-    results = response.json()
-    return jsonify(results), 200
+    try:
+        results = response.json()
+        return jsonify(results), 200
+    except:
+        return jsonify({"error": "It might be your typo error in the body requests, Please try again", "status":"500"}), 500
+
 
 if __name__ == "__main__":
     app.run()

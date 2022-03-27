@@ -19,6 +19,10 @@ Contribute this readme to add one of your project...
 
 # How to run the api
 
+You can now test the API with RapidAPI for Free
+[Go here](
+https://rapidapi.com/NYT92/api/hanime-python-api/)
+
 Install Python 3.9+ to run this
 
 Clone the repo

@@ -61,7 +61,7 @@ def description(id : str) -> str:
 
     return ''.join(fulldesc)
 
-def thumbnail(id: str) -> str:
+def poster(id: str) -> str:
     response = requests.get(base_video_url + id).text
     soup = BeautifulSoup(response, 'lxml')
     cover = soup.find('img', attrs=['class', 'hvpi-cover'])

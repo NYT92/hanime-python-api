@@ -16,15 +16,20 @@ import json
 import time
 import hanime
 import cmt_hanime
+import secrets
 from hashlib import sha256
 from dateutil import parser
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
+# Config
+
 app = Flask(__name__)
 CORS(app, resources={r"*": {"origins": "*"}})
 
 base_url = "https://hanime.tv/"
+
+# Error Handler + Index
 
 @app.errorhandler(404)
 def resource_not_found(e):
@@ -34,25 +39,25 @@ def resource_not_found(e):
 def server_error(e):
     return jsonify(error=str(e)), 500
 
+@app.errorhandler(503)
+def server_unavailable(e):
+    return jsonify({
+        "error": "Server unavailable",
+        "message": str(e)
+    }), 503
+
 @app.route('/')
 def index(): 
     return jsonify(
         {
             'status': 'ok', 
             'Warning':'Never use this API in production and abusing there system, this is just for testing purposes and for fun only',
+            'Github': 'https://github.com/nyt92',
             'Help': 'https://haniapi-docs.vercel.app',
         }
     ), 200
 
 # Authentication
-
-@app.route("/login", methods=["GET"])
-def login():
-    return jsonify({"Read This":"https://haniapi-docs.vercel.app/docs/authentication#update","200": "OK"}), 200
-
-@app.route("/auth", methods=["GET"])
-def auth():
-    return jsonify({"Read This":"https://haniapi-docs.vercel.app/docs/authentication#update","200": "OK"}), 200
 
 @app.route("/auth/login", methods=["GET"])
 def authlogin():
@@ -386,14 +391,21 @@ def authcoinbody():
 #API
 
 @app.route('/getInfo', methods=["GET"])
-def getinfo():
+def info():
     id = request.args.get('id')
+    if (id == None):
+        return jsonify({"error": "No Hanime Video Id or Slug Provided", "status":"400"}), 400
+    results = requests.get(base_url + 'api/v8/video?id=' + id)
+    results = results.json()
+
     return jsonify(
         {
+            "slug": results["hentai_video"]["slug"],
+            "id": results["hentai_video"]["id"],
             "info":hanime.info(id), 
-            "description":hanime.description(id),
+            "description":results["hentai_video"]["description"],
             "tags":hanime.tags(id),
-            "thumbnails":hanime.thumbnail(id),
+            "poster":hanime.poster(id),
             "video": base_url + "videos/hentai/" + id,
             "downloadURL" : hanime.download(request.args.get('id')),
         }
@@ -405,7 +417,7 @@ def getVideo():
     result = requests.get(url)
     result = result.json()
     ret = {
-        "url" : base_url + "/videos/hentai/" + request.args.get('id'),
+        "url" : base_url + "videos/hentai/" + request.args.get('id'),
         "downloadURL" : hanime.download(request.args.get('id')),
         "info" : "1080p is currently supported at /getVideo/premium"
     }
@@ -422,7 +434,7 @@ def getVideopremium():
     
     result = result.json()
     ret = {
-        "url" : base_url + "/videos/hentai/" + request.args.get('id'),
+        "url" : base_url + "videos/hentai/" + request.args.get('id'),
         "downloadURL" : hanime.download(request.args.get('id')),
     }
     if result["videos_manifest"]["servers"][0]["streams"][0]["url"] == "" :
@@ -436,10 +448,14 @@ def getVideopremium():
 
 @app.route('/getComment', methods=["GET"])
 def getComment():
+    vid_id = request.args.get("id")
+    if vid_id == None:
+        return jsonify({"error": "No Hanime Video ID", "status":"400"}), 400
+
     return jsonify({
-        "comments": cmt_hanime.get_comments(request.args.get('id')),
-        "total": cmt_hanime.get_totals(request.args.get('id')),
-        "info": hanime.info(request.args.get('id'))
+        "comments": cmt_hanime.get_comments(vid_id),
+        "total": cmt_hanime.get_totals(vid_id),
+        "info": hanime.info(vid_id)
     }), 200
 
 @app.route('/getDownloadURL', methods=["GET"])
@@ -453,12 +469,16 @@ def getallld():
     result = result.json()
     return result
 
+@app.route('/getLanding/recent', methods=["GET"])
+def getldrecent():
+    return jsonify({"test" : "ok"})    
+
 # Search
 
 @app.route('/search', methods=['POST'])
 def search():
     #srv2-hani-api wont fetch to your website...
-    search_url = "https://srv2-hani-api.deta.dev/hanimetv/search/web2/"
+    search_url = "https://service2-haniapi.nsdev.ml/hanimetv/search/web2/"
 
     request_data = request.get_json(force=True)
     search_query = request_data['search']
@@ -487,14 +507,19 @@ def search():
     headers = {
         "Content-Type":"application/json; charset=utf-8"
     }
+    if search_tag == None and search_brand == None and search_blacklist == None:
+        search_tag = []
+        search_brand = []
+        search_blacklist = []
     response = requests.post(search_url, headers=headers, json=res_json)
     results = response.json()
-    return jsonify(results, {"Info":"500 might happened if the request got typo", "docs":"https://haniapi-docs.vercel.app/docs/search"}), 200
+
+    return jsonify(results, {"Info":"500 might happened if the requests body got typo", "docs":"https://haniapi-docs.vercel.app/docs/search"}), 200
 
 @app.route('/search/req', methods=['GET'])
 def searchq():
     #srv2-hani-api wont fetch to your website...
-    search_url = "https://srv2-hani-api.deta.dev/hanimetv/search/web2/"
+    search_url = "https://service2-haniapi.nsdev.ml/hanimetv/search/web2/"
 
     search_query = request.args.get("q")
     search_page = request.args.get("p")
@@ -524,39 +549,61 @@ def searchq():
 
     return jsonify(results), 200
 
+# Browse
 
-    #srv2-hani-api wont fetch to your website...
-    search_url = "https://srv2-hani-api.deta.dev/hanimetv/search/web2/"
-    request_data = request.get_json(force=True)
-    search_query = request_data['search']
-    search_brand = request_data['brands']
-    search_page = request_data['page']
-    search_blacklist = request_data['blacklist']
-    search_ordering = request_data['ordering']
-    search_order_by = request_data['order_by']
-    search_tag = request_data['tags']
+@app.route("/browse" , methods=["GET"])
+def browse():
+    browse_url = base_url + "api/v8/browse"
+    result = requests.get(browse_url)
+    result = result.json()
+    ret = {
+        "video": "null",
+        "tags": result["hentai_tags"],
+        "brands": result["brands"],
+    }
+    return jsonify(ret), 200
 
-    res_json = {
-        "search": search_query,
-        "tags":
-            search_tag
-        ,
-        "brands": 
-            search_brand
-        ,
-        "blacklist": 
-            search_blacklist
-        ,
-        "order": search_order_by,
-        "ordering": search_ordering,
-        "page": search_page,
+@app.route("/browse/<type>/<tag>/<page>" , methods=["GET"])
+def browsefilter(type, tag, page):
+    browse_url = base_url + "api/v8/browse/" + type + "/" + tag + f"?page={page}&order_by=created_at_unix&ordering=desc"
+    headers = {"X-Signature-Version": "web2","X-Signature": secrets.token_hex(32)}
+    result = requests.get(browse_url, headers=headers)
+    result = result.json()
+    ret = {
+        "tag": tag,
+        "videos": result["hentai_videos"],
+        "page": result["number_of_pages"],
     }
-    headers = {
-        "Content-Type":"application/json; charset=utf-8"
-    }
-    response = requests.post(search_url, headers=headers, json=res_json)
-    results = response.json()
-    return jsonify(results, {"Info":"500 might happened if the request got typo"}), 200
+    return jsonify(ret), 200
+
+# User
+
+@app.route('/user', methods=['GET'])
+def user():
+    user_url = base_url + "rapi/v7/my_channel"
+    headers = {"X-Session-Token": request.headers.get("Token")}
+    result = requests.get(user_url, headers=headers)
+    result = result.json()
+    if request.headers.get("Token") == None:
+        return jsonify({"errors": "Unauthorized", "message": "No User Session Token provided"}), 401
+    ret = {}
+    ret["user"] = result["user_channel"]
+    ret["achievements"] = result["user_achievements"]
+    ret["playlists"] = result["playlists"]
+    return jsonify(ret), 200
+
+@app.route('/user/<ch_id>', methods=['GET'])
+def oth_user(ch_id):
+    user_url = base_url + "rapi/v7/channels/" + ch_id
+    result = requests.get(user_url)
+    result = result.json()
+    ret = {}
+    if ch_id == None:
+        return jsonify({"error": "User Not Found"}), 404
+    ret["user"] = result["user_channel"]
+    ret["achievements"] = result["user_channel_user_achievements"]
+    ret["playlists"] = result["user_channel_playlists"]
+    return jsonify(ret), 200
 
 if __name__ == "__main__":
     app.run()

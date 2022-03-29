@@ -43,9 +43,17 @@ If you want to supported me or increase more req limitation, you can buy it and 
 ![image](https://user-images.githubusercontent.com/53612429/160621674-cd628e26-1e64-4229-91e7-09f6fb8b953e.png)
 
 
-## Local System
+## Locally
 
-Require to Install Python 3.9+
+If you want to host our own api and didnt want to spend money on server, this is for you. 
+No Request Limitation and Everything is free.  
+
+*Beware of Too Too Many Requests, Hanime Server Might block the incoming request and It can be dangerous to your system but can protentially shut down Hanime Server also*  
+*I am not responsible for the damage from your side*
+
+### How to Install
+
+*Require to Install Python 3.9+*
 
 Clone the repo
 > git clone https://github.com/NYT92/hanime-python-api.git
@@ -53,7 +61,7 @@ Clone the repo
 Install the requirements
 > pip install -r requirements
 
-Run the server
+Run The main.py
 > python or python3 main.py
 
 # Project

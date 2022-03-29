@@ -1,18 +1,26 @@
 # HaniAPI  
 **Hanime API Build with Flask**
 
-More Powerful than Original API :
+AND WHY not Choose THIS ONE?
 
-- Get Comment, (Replies, Other Replies)(SOON) From Hanime Video
-- Get Landing From the front page of the Hanime.tv (SOON)
-- Authentication (*Does not support sign-up*) [Original Idea](#author--credits)
-- Collect Coins Without Clicking On Ads [Original Idea](#author--credits)
-- Checking Your Channel or Other User Channel
-- Community Upload (SOON)
-- Search
-- Request 1080p Video using X-Session-Token
-- Browse Tags & Brands
-- Get Video with Player URL and Iframe API using [nsPlayer](https://player.nscdn.ml) (*powered by playerjs*) and All Video Stream from HaniAPI
+- Fast API  
+- Easy For Your Project
+- Unrestrict Access to Some API (it won't get you 1080p video)  
+- Never Wasting your time building your own one
+- You can MAYBE bypass cloudflare blocking If you cannot go and open the app to collect coins???  
+- More API Features than The Original One:  
+  - Get Comment, (Replies, Other Replies)(SOON) From Hanime Video
+  - Get Landing From the front page of the Hanime.tv (SOON)
+  - Authentication (*Does not support sign-up*) [Original Idea](#author--credits)
+  - Collect Coins Without Clicking On Ads [Original Idea](#author--credits)
+  - Checking Your Channel or Other User Channel
+  - Community Upload (SOON)
+  - Search
+  - Request 1080p Video using X-Session-Token
+  - Browse Tags & Brands
+  - Get Video with Player URL and Iframe API using [nsPlayer](https://player.nscdn.ml) (*powered by playerjs*) and All Video Stream from HaniAPI  
+  
+
 
 # API Documentation
 

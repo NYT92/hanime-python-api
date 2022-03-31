@@ -1,15 +1,16 @@
 # HaniAPI  
-**Hanime API Build with Flask**
+**Hanime API Build with Python Flask**
 
 AND WHY not Choose THIS ONE?
 
 - Fast API  
-- Easy For Your Project
-- Unrestrict Access to Some API (it won't get you 1080p video)  
+- Open Source
+- Free To Use For Your Project
+- Unrestrict Access to Some API (getVideo won't give you 1080p video)  
 - Never Wasting your time building your own one
 - You can MAYBE bypass cloudflare blocking If you cannot go and open the app to collect coins???  
 - More API Features than The Original One:  
-  - Get Comment, (Replies, Other Replies)(SOON) From Hanime Video
+  - Get Comments, (Replies, Other Replies)(SOON) From Hanime Video
   - Get Landing From the front page of the Hanime.tv (SOON)
   - Authentication (*Does not support sign-up*) [Original Idea](#author--credits)
   - Collect Coins Without Clicking On Ads [Original Idea](#author--credits)
@@ -74,10 +75,16 @@ Install the requirements
 Run The main.py
 > python or python3 main.py
 
-# Project
+# Project / Contribute
+
+## Project
 
 What can you do with my api???  
 Contribute this readme to add one of your project...
+
+## Contribute
+
+Feel Free to help me adding more feature and fixing some bug here..
 
 # why the fuck are u doing this? it just an useless api lmaoo...
 
@@ -89,7 +96,6 @@ If there is any problem with this API, Please make a issue report....
 ALSO  
 this is for fun purposes and not for production cases.  
 if you guy re from hanime staff see this pls ask nicely to remove it.  
-
 
 # Author / Credits
 

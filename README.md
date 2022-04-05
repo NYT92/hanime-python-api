@@ -19,7 +19,7 @@ AND WHY not Choose THIS ONE?
   - Search
   - Request 1080p Video using X-Session-Token
   - Browse Tags & Brands
-  - Get Video with Player URL and Iframe API using [nsPlayer](https://player.nscdn.ml) (*powered by playerjs*) and All Video Stream from HaniAPI  
+  - Get Video with Player URL and Iframe API using [nsPlayer](https://player.nscdn.ml) (*powered by playerjs*) and All Video Stream from HaniAPI (Beta) 
   
 Next Update : I will try to improve code and Switching Webscraping *except : getDownloadURL* to Hanime Own API for better performance. 
 
@@ -34,7 +34,7 @@ Move to https://haniapi-docs.vercel.app
 You can use this Rest API link and It is free with no quota limitation.  
 And Thanks to [Deta](https://deta.sh) for free serverless service also other free features  
 
-*I frequently update this API So There might be new feature there...*
+*I frequently or sometimes update this API So There might be new feature there...*
 
 REST Link : https://hani.nsdev.ml
 

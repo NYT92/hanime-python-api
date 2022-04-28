@@ -15,14 +15,12 @@ AND WHY not Choose THIS ONE?
   - Authentication (*Does not support sign-up*) [Original Idea](#author--credits)
   - Collect Coins Without Clicking On Ads [Original Idea](#author--credits)
   - Checking Your Channel or Other User Channel
-  - Community Upload (SOON)
+  - Community Upload
   - Search
   - Request 1080p Video using X-Session-Token
   - Browse Tags & Brands
-  - Get Video with Player URL and Iframe API using [nsPlayer](https://player.nscdn.ml) (*powered by playerjs*) and All Video Stream from HaniAPI (Beta) 
+  - Get Video with Player URL and Iframe API using [nsPlayer](https://player.nscdn.ml) (*powered by playerjs*) and All Video Stream from HaniAPI 
   
-Next Update : I will try to improve code and Switching Webscraping *except : getDownloadURL* to Hanime Own API for better performance. 
-
 # API Documentation
 
 Move to https://haniapi-docs.vercel.app
@@ -106,4 +104,3 @@ if you guy re from hanime staff see this pls ask nicely to remove it.
 Made with :heart_on_fire: By NYT92/nsDev from :cambodia:  
 And  
 - [WeaveAche/hanime-auto-coins-collector](https://github.com/WeaveAche/hanime-auto-coins-collector)  
-- [Profility/hanime-scraper](https://github.com/Profility/hanime-scraper)

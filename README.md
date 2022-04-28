@@ -33,7 +33,7 @@ Move to https://haniapi-docs.vercel.app
 
 From Now on, I will be switching to a new server and we will be deprecating deta.sh server in the v4, the service will be running as normal but there will be no update.
 
-Vercel : https://hani.nsdev.ml
+Vercel : https://hani.nsdev.ml  
 Railway : https://v4hani.nsdev.ml (Supported Server)  
 Deta : https://v3hani.nsdev.ml (Deprecated in v4 and switch to v3hani.nsdev.ml)  
 
@@ -56,7 +56,7 @@ Deploy Via Railway
 
 Deploy Via Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/NYT92/hanime-python-api)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/NYT92/hanime-python-api/tree/main/vercel)
 
 ## Locally
 

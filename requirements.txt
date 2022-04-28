@@ -3,5 +3,6 @@ python_dateutil==2.8.2
 requests==2.26.0
 Werkzeug==2.0.3
 Flask_Cors==3.0.10
-bs4
-lxml==4.8.0
+Flask-Limiter
+waitress
+configparser

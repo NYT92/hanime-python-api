@@ -33,9 +33,9 @@ Move to https://haniapi-docs.vercel.app
 
 From Now on, I will be switching to a new server and we will be deprecating deta.sh server in the v4, the service will be running as normal but there will be no update.
 
-Vercel : https://lb2hani.nsdev.ml (Switching to Hani Subdomain in v4)  
+Vercel : https://hani.nsdev.ml
 Railway : https://v4hani.nsdev.ml (Supported Server)  
-Deta : https://hani.nsdev.ml (Deprecated in v4 and switch to v3hani.nsdev.ml)  
+Deta : https://v3hani.nsdev.ml (Deprecated in v4 and switch to v3hani.nsdev.ml)  
 
 AND New Deployment will be introduce to the documentation soon...
 

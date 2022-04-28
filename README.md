@@ -31,28 +31,16 @@ Move to https://haniapi-docs.vercel.app
 
 ## REST API
 
-You can use this Rest API link and It is free with no quota limitation.  
-And Thanks to [Deta](https://deta.sh) for free serverless service also other free features  
+From Now on, I will be switching to a new server and we will be deprecating deta.sh server in the v4, the service will be running as normal but there will be no update.
 
-*I frequently or sometimes update this API So There might be new feature there...*
+Vercel : https://lb2hani.nsdev.ml (Switching to Hani Subdomain in v4)  
+Railway : https://v4hani.nsdev.ml (Supported Server)  
+Deta : https://hani.nsdev.ml (Deprecated in v4 and switch to v3hani.nsdev.ml)  
 
-REST Link : https://hani.nsdev.ml
+AND New Deployment will be introduce to the documentation soon...
 
 Please Note :
-*Every route get the 75 req per minute except search api get the 200 req per minute*  
-*This REST Request time is 4 sec so it might be slow*  
-*Not Great for production used*  
-
-## RapidAPI
-
-You can now test the API with RapidAPI for Free
-[Go here](
-https://rapidapi.com/NYT92/api/hanime-python-api/)
-
-If you want to supported me or increase more req limitation, you can buy it and used it for your project
-
-![image](https://user-images.githubusercontent.com/53612429/160621674-cd628e26-1e64-4229-91e7-09f6fb8b953e.png)
-
+*Every route get the 100 req per minute except search api get the 200 req per minute*  
 
 ## Locally
 

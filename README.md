@@ -56,6 +56,10 @@ Deploy Via Vercel
 
 [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/NYT92/hanime-python-api/tree/main/vercel)
 
+Deploy Via Heroku
+
+[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+
 ## Locally
 
 If you want to host our own api and didnt want to spend money on server, this is for you. 

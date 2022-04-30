@@ -1,5 +1,7 @@
 {
   "name": "HaniAPI",
-  "description": "Hanime API Build with Flask Python",
+  "description": "Hanime API Build with Flask",
   "repository": "https://github.com/nyt92/hanime-python-api",
+  "logo": "https://cdn.nscdn.ml/assets/img/py.png",
+  "keywords": ["python", "api", "hanime"]
 }

@@ -38,7 +38,7 @@ logger.info('API IS RUNNING')
 logger.info('--------------------------------')
 logger.info('Never Use This API for Production If you deploying on the slow server')
 logger.info('--------------------------------')
-logger.info('Go to https://haniapi-docs.vercel.app/docs/config for more information')
+logger.info('Go to https://haniapi-docs.vercel.app/docs/config for more information about configing the server')
 logger.info('--------------------------------')
 
 # Config
@@ -98,12 +98,6 @@ def index():
             'Github': 'https://github.com/nyt92',
             'Version': '4.0',
             'Docs': 'https://haniapi-docs.vercel.app',
-            'API': {
-                'Info': 'Prod-URL1 will be use for main public api and will be available in V4. Deprecated-URL will be deprecated in V4',
-                'Deprecated':'https://v3hani.nsdev.ml',
-                'Prod-URL1':'https://hani.nsdev.ml',
-                'Prod-URL2':'https://v4hani.nsdev.ml',
-            }
         }), 200
 
 # Authentication

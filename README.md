@@ -1,4 +1,7 @@
-[NOTICE] I wont maintained this api for now because i dont have much time to do it and all the code, documentation and hosting api is done by myself. Plus I have other new project to work on too. If you want to contribute this repo, i will be appriciated and save lots of time
+[NOTICE] hani.nsdev.ml and v4hani.nsdev.ml is down please refer using haniapi.vercel.app.  
+
+[INFO] I wont maintained this api for now because i dont have much time to do it and all the code, documentation and hosting api is done by myself. Plus I have other new project to work on too. If you want to contribute this repo, i will be appriciated and save lots of time
+
 
 # HaniAPI  
 **Hanime API Build with Python Flask**

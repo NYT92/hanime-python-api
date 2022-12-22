@@ -15,8 +15,8 @@ AND WHY not Choose THIS ONE?
 - Never Wasting your time building your own one
 - You can MAYBE bypass cloudflare blocking If you cannot go and open the app to collect coins???  
 - More API Features than The Original One:  
-  - Get Comments, (Replies, Other Replies)(SOON) From Hanime Video
-  - Get Landing From the front page of the Hanime.tv (SOON)
+  - Get Comments, (Replies, Other Replies) from Hanime video
+  - Get Landing From the front page of the Hanime.tv
   - Authentication (*Does not support sign-up*) [Original Idea](#author--credits)
   - Collect Coins Without Clicking On Ads [Original Idea](#author--credits)
   - Checking Your Channel or Other User Channel
@@ -24,7 +24,6 @@ AND WHY not Choose THIS ONE?
   - Search
   - Request 1080p Video using X-Session-Token
   - Browse Tags & Brands
-  - Get Video with Player URL and Iframe API using [nsPlayer](https://player.nscdn.ml) (*powered by playerjs*) and All Video Stream from HaniAPI 
   
 ## API Documentation
 

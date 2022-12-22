@@ -26,45 +26,9 @@ AND WHY not Choose THIS ONE?
   - Browse Tags & Brands
   - Get Video with Player URL and Iframe API using [nsPlayer](https://player.nscdn.ml) (*powered by playerjs*) and All Video Stream from HaniAPI 
   
-# API Documentation
+## API Documentation
 
 Move to https://haniapi-docs.vercel.app
-
-# Running API
-
-## REST API
-
-From Now on, I will be switching to a new server and we will be deprecating deta.sh server in the v4, the service will be running as normal but there will be no update.
-
-Vercel : https://hani.nsdev.ml  
-Railway : https://v4hani.nsdev.ml (Supported Server)  
-Deta : https://v3hani.nsdev.ml (Deprecated in v4 and switch to v3hani.nsdev.ml)  
-
-AND New Deployment will be introduce to the documentation soon...
-
-Please Note :
-*Every route get the 100 req per minute except search api get the 200 req per minute*  
-
-## Server
-
-If you dont want to kill your own pc, you can deploy it via these free services. Also If you want to deploy it via GCP, AWS or AZURE, I dont have a tutorial yet and you should read those cloud services docs for more info.
-
-Deploy Via Deta.sh  
-
-[![Deploy](https://button.deta.dev/1/svg)](https://go.deta.dev/deploy?repo=https://github.com/NYT92/hanime-python-api)
-
-Deploy Via Railway  
-
-[![Deploy on Railway](https://railway.app/button.svg)](https://railway.app/new/template/7DfVON?referralCode=jXbUTS)
-
-Deploy Via Vercel
-
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/NYT92/hanime-python-api/tree/main)
-
-## Locally
-
-If you want to host our own api and didnt want to spend money on server, this is for you. 
-No Request Limitation and Everything is free.  
 
 ### How to Install
 

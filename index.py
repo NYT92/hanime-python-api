@@ -120,26 +120,6 @@ def authbody():
     return jsonify(auth_hanime.authlogin(hanime_email, hanime_password))
 
 
-@app.route("/auth/login/summary", methods=["GET"])
-@cache.cached(timeout=300)
-@limiter.limit(req)
-def authsummary():
-    hanime_email = request.args.get("email")
-    hanime_password = request.args.get("password")
-    received = auth_hanime.authlogin(hanime_email, hanime_password)
-    return {
-        "avatar": received["user"]["avatar_url"],
-        "name": received["user"]["name"],
-        "email": received["user"]["email"],
-        "coins": received["user"]["coins"],
-        "active_premium": received["user"]["alt_premium_status"],
-        "id": received["user"]["id"],
-        "slug": received["user"]["slug"],
-        "video_view": received["user"]["video_views"],
-        "session_token": received["session_token"]
-    }
-
-
 @app.route("/auth/login/summary", methods=["POST"])
 @cache.cached(timeout=300)
 @limiter.limit(req)

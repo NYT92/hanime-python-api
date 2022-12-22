@@ -1,6 +1,6 @@
-[NOTICE] hani.nsdev.ml and v4hani.nsdev.ml is up and running.  
+[NOTICE] MAJOR UPDATE FOR THIS NEW 5.0 UPDATE
 
-[INFO] I wont maintained this api for now because i dont have much time to do it and all the code, documentation and hosting api is done by myself. Plus I have other new project to work on too. If you want to contribute this repo, i will be appriciated and save lots of time
+[INFO] This will be my last time fixing this code and so yeah docs will also be updated later.
 
 
 # HaniAPI  
@@ -59,19 +59,12 @@ Deploy Via Railway
 
 Deploy Via Vercel
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/NYT92/hanime-python-api/tree/main/vercel)
-
-Deploy Via Heroku
-
-[![Deploy](https://www.herokucdn.com/deploy/button.svg)](https://heroku.com/deploy)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/NYT92/hanime-python-api/tree/main)
 
 ## Locally
 
 If you want to host our own api and didnt want to spend money on server, this is for you. 
 No Request Limitation and Everything is free.  
-
-*Beware of Too Too Many Requests, Hanime Server Might block the incoming request and It can be dangerous to your system but can protentially shut down Hanime Server also*  
-*I am not responsible for the damage from your side*
 
 ### How to Install
 
@@ -84,7 +77,7 @@ Install the requirements
 > pip install -r requirements
 
 Run The main.py
-> python or python3 main.py
+> python or python3 index.py
 
 # Project / Contribute
 
@@ -96,10 +89,6 @@ Contribute this readme to add one of your project...
 ## Contribute
 
 Feel Free to help me adding more feature and fixing some bug here..
-
-# why the fuck are u doing this? it just an useless api lmaoo...
-
-for fun n education not for something else
 
 # Troubleshootings
 

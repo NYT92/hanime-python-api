@@ -31,7 +31,7 @@ config = {
 app.config.from_mapping(config)
 cache = Cache(app)
 CORS(app, resources={r"*": {"origins": "*"}})
-limiter = Limiter(app, key_func=get_remote_address,
+limiter = Limiter(app=app, key_func=get_remote_address,
                   strategy='fixed-window', headers_enabled=True)
 logger = logging.getLogger('waitress')
 logger.setLevel(logging.DEBUG)
@@ -186,7 +186,7 @@ def getVideo(id):
         base64.b64encode(result["hentai_video"]["slug"].encode()).decode()
     ret = {
         "url": f"{video_url}/" + id, "download_url": dl, "streams": result["videos_manifest"]["servers"]
-           [0]["streams"], "poster_url": result["hentai_video"]["poster_url"], "title": result["hentai_video"]["name"]}
+        [0]["streams"], "poster_url": result["hentai_video"]["poster_url"], "title": result["hentai_video"]["name"]}
 
     return jsonify(ret), 200
 
@@ -311,13 +311,23 @@ def gettrend():
 @limiter.limit(search_req)
 def search():
     request_data = request.get_json(force=True)
-    search_query = request_data['search']
-    search_brand = request_data['brands']
-    search_page = request_data['page']
-    search_blacklist = request_data['blacklist']
-    search_ordering = request_data['ordering']
-    search_order_by = request_data['order_by']
-    search_tag = request_data['tags']
+
+    # Fixed KeyError
+    search_query = request_data.get('search')
+    search_brand = request_data.get('brands')
+    search_page = request_data.get('page')
+    search_blacklist = request_data.get('blacklist')
+    search_ordering = request_data.get('ordering')
+    search_order_by = request_data.get('order_by')
+    search_tag = request_data.get('tags')
+
+    # Fixed the error where the request being sent had empty strings,
+    # where arrays were supposed to be
+    if search_tag is None and search_brand is None and search_blacklist is None:
+        search_tag = []
+        search_brand = []
+        search_blacklist = []
+
     res_json = {
         "search_text": search_query,
         "tags":
@@ -334,10 +344,7 @@ def search():
     headers = {
         "Content-Type": "application/json; charset=utf-8"
     }
-    if search_tag is None and search_brand is None and search_blacklist is None:
-        search_tag = []
-        search_brand = []
-        search_blacklist = []
+
     response = requests.post(search_api, headers=headers, json=res_json)
     results = response.json()
     ret = {

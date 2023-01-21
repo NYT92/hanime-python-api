@@ -27,7 +27,11 @@ AND WHY not Choose THIS ONE?
   
 ## API Documentation
 
-Move to https://haniapi-docs.vercel.app
+**CHECK OUT MY NEW POSTMAN COLLECTION DOCS (work in progress)**  
+
+[Click here](https://documenter.getpostman.com/view/18399672/2s8ZDSdRH5)  
+
+or Use the old one [Old docs](https://haniapi-docs.vercel.app/docs/get-started)
 
 ### How to Install
 
@@ -42,25 +46,16 @@ Install the requirements
 Run The main.py
 > python or python3 index.py
 
-# Project / Contribute
-
-## Project
+## Use cases
 
 What can you do with my api???  
 Contribute this readme to add one of your project...
 
-## Contribute
+## Contributer
 
-Feel Free to help me adding more feature and fixing some bug here..
+![](https://contrib.rocks/image?repo=nyt92/hanime-python-api)
 
-# Troubleshootings
-
-If there is any problem with this API, Please make a issue report....  
-ALSO  
-this is for fun purposes and not for production cases.  
-if you guy re from hanime staff see this pls ask nicely to remove it.  
-
-# Author / Credits
+## Author / Credits
 
 Made with :heart_on_fire: By NYT92/nsDev from :cambodia:  
 And  

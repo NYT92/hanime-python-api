@@ -1,8 +1,9 @@
-Flask==2.0.2
+Flask==2.2.5
 python_dateutil==2.8.2
-requests==2.26.0
-Werkzeug==2.0.3
+requests==2.31.0
+Werkzeug==3.0.1
 Flask_Cors==3.0.10
+flask_caching
 Flask-Limiter
 waitress
 configparser

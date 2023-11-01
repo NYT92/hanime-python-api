@@ -3,8 +3,6 @@
 # Credit to WeaveAche and Profility for the code
 # https://github.com/WeaveAche/hanime-auto-coins-collector
 
-# api url : https://hani.nsdev.ml
-# docs : https://haniapi-docs.vercel.app
 
 import base64
 import requests
@@ -26,7 +24,7 @@ from flask_caching import Cache
 app = Flask(__name__)
 config = {
     "CACHE_TYPE": "SimpleCache",
-    "CACHE_DEFAULT_TIMEOUT": 20
+    "CACHE_DEFAULT_TIMEOUT": 3600000
 }
 app.config.from_mapping(config)
 cache = Cache(app)
@@ -41,7 +39,7 @@ logger.info('--------------------------------')
 logger.info('Press Ctrl+C to stop the server.')
 logger.info('--------------------------------')
 logger.info(
-    'Go to https://haniapi-docs.vercel.app/docs/config for more information')
+    'Go to https://go.nyt92.eu.org/hanidocs for more information')
 logger.info('--------------------------------')
 
 # Config
@@ -103,8 +101,7 @@ def index():
         'status': 'ok',
         'Credit': 'Made by NYT92',
         'Github': 'https://github.com/nyt92/hanime-python-api',
-        'Version': '5.0',
-        'Docs': 'https://haniapi-docs.vercel.app',
+        'Version': '5.1',
     }), 200
 
 # Authentication
